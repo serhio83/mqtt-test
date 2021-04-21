@@ -9,7 +9,14 @@
 ## run broker
 
 ```
-docker run -d --name emqx -p 18083:18083 -p 1883:1883 emqx/emqx:latest
+docker run -e "DOCKER_VERNEMQ_ALLOW_ANONYMOUS=on" \
+           -e "DOCKER_VERNEMQ_ACCEPT_EULA=yes" \
+           -e "DOCKER_VERNEMQ_PERSISTENT_CLIENT_EXPIRATION=1m" \
+           -e "DOCKER_VERNEMQ_MAX_ONLINE_MESSAGES=-1" \
+           -e "DOCKER_VERNEMQ_MAX_OFFLINE_MESSAGES=-1" \
+           -e "DOCKER_VERNEMQ_ALLOW_MULTIPLE_SESSIONS=off" \
+           --name vernemq1 --rm -d -p 1883:1883 -p 8888:8888 vernemq/vernemq
+
 ```
 
 ## usage
