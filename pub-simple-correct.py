@@ -2,8 +2,10 @@ import paho.mqtt.client as mqtt
 import time
 import logging as logger
 
-logger.basicConfig(filename='pub-simple-correct.log', datefmt='%Y-%m-%d %H:%M:%S %z',
-                   format='%(asctime)s [%(name)s.%(threadName)s.%(funcName)s] %(message)s', level=logger.DEBUG)
+logger.basicConfig(filename='pub-simple-correct.log',
+                   datefmt='%Y-%m-%d %H.%M.%S',
+                   format='%(asctime)s.%(msecs)03d [%(name)s.%(threadName)s.%(funcName)s] %(message)s',
+                   level=logger.DEBUG)
 broker_url = "localhost"
 broker_port = 1883
 
