@@ -31,3 +31,11 @@ docker run -e "DOCKER_VERNEMQ_ALLOW_ANONYMOUS=on" \
 - run `sub.py`
 - run `pub-simple-wrong.py` & wait on subscriber side, after publishing repeat again
 - see other examples `pub.py` / `pub-simple-correct.py` / `publish-generator.py`
+
+### emqx
+
+```
+docker run -d --name emqx -p 18083:18083 -p 1883:1883 --rm emqx/emqx:latest
+```
+
+with emqx broker this case does not reproduced
